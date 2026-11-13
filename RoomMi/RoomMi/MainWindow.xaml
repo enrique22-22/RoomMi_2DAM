@@ -1,0 +1,928 @@
+﻿<Window x:Class="RoomMi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoomMi"
+        mc:Ignorable="d"
+        Background="#202124"
+        Icon="/Recursos/Iconos/Logo-RoomMi.png"
+        WindowStyle="None" AllowsTransparency="True"
+        WindowState="Maximized"
+        Title="MainWindow" Height="900" Width="1300">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="MenuButton">
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Left" Width="250" Background="#28313B">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                    <Image Source="/Recursos/Iconos/Logo-RoomMi.png" Height="50"/>
+                    <TextBlock Text="RoomMi" FontSize="30"
+                               Foreground="White" FontWeight="Bold"
+                               Margin="5,15,0,16"/>
+                </StackPanel>
+
+                <Separator/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+
+                <!-- Boton Dashboard -->
+                <Button Margin="10,10,10,10" Background="Transparent" Height="50" HorizontalContentAlignment="Left" BorderBrush="Transparent"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Recursos/Iconos/iconoDashboard2.png" Height="25" Stretch="Uniform" />
+                        <TextBlock Margin="10,0,0,0" Text="Dashboard" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Boton Validar -->
+                <Button Background="Transparent" Margin="10,0,10,10" Height="50" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Recursos/Iconos/iconoValidarOfertas2.png" Stretch="Uniform" Height="25" />
+                        <TextBlock Margin="10,0,0,0" Text="Validar Ofertas" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Boton Reservas -->
+                <Button Background="Transparent" Height="50" Margin="10,0,10,10" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Recursos/Iconos/iconoGestionReservas2.png" Height="25" Stretch="Uniform" />
+                        <TextBlock Margin="10,0,0,0" Text="Gestión de Reservas" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Boton Usuarios -->
+                <Button Background="Transparent" Height="50" Margin="10,0,10,10" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Recursos/Iconos/iconoGestionUsuarios2.png" Height="25" Stretch="Uniform" />
+                        <TextBlock Margin="10,0,0,0" Text="Gestión de Usuarios" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Boton Permisos -->
+                <Button  Background="Transparent" Height="50" Margin="10,0,10,10" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Recursos/Iconos/iconoPermisosRoles2.png" Height="25" Stretch="Uniform" />
+                        <TextBlock Margin="10,0,0,0" Text="Permisos y Roles" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Button>
+
+                <Separator />
+
+            </StackPanel>
+
+            <!-- Boton Administrador -->
+            <Button Background="Transparent" Height="50" Grid.Row="2" BorderBrush="Transparent" VerticalAlignment="Bottom" Margin="0,0,0,20">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/Iconos/iconoLogin2.png" Height="25" Stretch="Uniform" />
+                    <TextBlock Margin="10,0,0,0" Text="Administrador" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    <Button Background="Transparent" Height="30" BorderBrush="Transparent" VerticalAlignment="Bottom" Click="bntLogOut"  >
+                        <Image Source="/Recursos/Iconos/iconoLogOut2.png" Margin="10,0,0,0" Height="25" Stretch="Uniform"  />
+                    </Button>
+                </StackPanel>
+            </Button>
+
+
+        </Grid>
+
+        <Grid DockPanel.Dock="Top" Height="100" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Texto Dashboard y Resumen General -->
+            <TextBlock Text="Dashboard - "
+                       Grid.Column="0"
+                       FontSize="35" 
+                       FontWeight="Bold"
+                       Margin="20,20,0,0" 
+                       Foreground="White" />
+
+            <TextBlock Text="Resumen General "
+                       Grid.Column="1"
+                       FontSize="35" 
+                       Margin="0,20,0,0" 
+                       Foreground="White" />
+
+            <!-- Boton de la derecha de Notificaciones -->
+            <Button Grid.Column="3" 
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    BorderBrush="Transparent"
+                    Height="50"
+                    Width="55"
+                    x:Name="btnNotificaciones"
+                    Click="btnNotificaciones_Click"
+                    Margin="0,20,10,0">
+
+                <Grid>
+
+                    <!-- Campana -->
+                    <Image Source="/Recursos/Iconos/iconoCampana (1).png"
+                           Width="24"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                    <!-- Número de notificaciones -->
+                    <Border Background="#C52233"
+                            Width="18"
+                            Height="18"
+                            CornerRadius="10"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="0,0,4,0">
+
+                        <TextBlock Text="7"
+                                   Foreground="White"
+                                   FontSize="10"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+
+                </Grid>
+
+
+                <Button.ContextMenu>
+                    <ContextMenu Width="340"
+                                 Background="#1A1A24"
+                                 Foreground="White"
+                                 Padding="0">
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="NOTIFICACIONES"
+                                           FontSize="15"
+                                           FontWeight="Bold"
+                                           Foreground="White"
+                                           Margin="5"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                        <Separator/>
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="●  Nueva solicitud de reserva"
+                                               Foreground="#38BDF8"
+                                               FontWeight="Bold"
+                                               FontSize="13"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                        <Separator/>
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="✓  Reserva confirmada"
+                                               Foreground="White"
+                                               FontWeight="Bold"
+                                               FontSize="13"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                        <Separator/>
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="●  Nuevo mensaje"
+                                               Foreground="#38BDF8"
+                                               FontWeight="Bold"
+                                               FontSize="13"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                        <Separator/>
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="!   Reserva pendiente"
+                                               Foreground="White"
+                                               FontWeight="Bold"
+                                               FontSize="13"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                        <Separator/>
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="✓  Habitación publicada"
+                                               Foreground="White"
+                                               FontWeight="Bold"
+                                               FontSize="13"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                        <Separator/>
+
+                        <MenuItem IsEnabled="False">
+                            <MenuItem.Header>
+                                <TextBlock Text="Ver todas las notificaciones"
+                                           Foreground="#38BDF8"
+                                           FontWeight="SemiBold"
+                                           HorizontalAlignment="Center"
+                                           Margin="5"/>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                    </ContextMenu>
+                </Button.ContextMenu>
+
+            </Button>
+
+            <!-- Boton minimizar -->
+            <Button Grid.Column="5" 
+                    Style="{StaticResource MenuButton}"
+                    x:Name="btnMinimize" Click="btnMinimize_Click"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    BorderBrush="Transparent"
+                    Height="25"
+                    Width="25"
+                    Margin="0,20,10,0">
+
+                <Image Source="/Recursos/Iconos/minimizar.png" Width="14" Height="20" />
+
+            </Button>
+
+            <!-- Boton maximizar -->
+            <Button Grid.Column="6" 
+                    Style="{StaticResource MenuButton}"
+                    x:Name="btnMaximize" Click="btnMaximize_Click"
+                    Background="Transparent"
+                    HorizontalAlignment="Right"
+                    BorderBrush="Transparent"
+                    Height="25"
+                    Width="25"
+                    Margin="0,20,10,0">
+
+                <Image Source="/Recursos/Iconos/maximizar.png" Width="14"/>
+
+            </Button>
+
+            <!-- Boton cerrar -->
+            <Button Grid.Column="7" 
+                    Style="{StaticResource MenuButton}"
+                    Background="Transparent"
+                    x:Name="btnClose" Click="btnClose_Click"
+                    HorizontalAlignment="Right"
+                    BorderBrush="Transparent"
+                    Height="25"
+                    Width="25"
+                    Margin="0,20,10,0">
+
+                <Image Source="/Recursos/Iconos/cerrar.png" Width="14" Height="15" />
+
+            </Button>
+
+        </Grid>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Creación de las 4 tarjeras -->
+            <UniformGrid Grid.Row="0" Columns="4" Margin="0,0,0,20">
+
+                <!-- Tarjeta 1: Habitaciones -->
+                <Border CornerRadius="12" Margin="15" Padding="20" Height="180">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#1A222E" Offset="0.0"/>
+                            <GradientStop Color="#161A22" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Image Source="/Recursos/Iconos/roomcard.png" Height="50"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                            <TextBlock Text="Habitaciones" Foreground="#94A3B8" FontSize="15" FontWeight="SemiBold"/>
+                            <TextBlock Text="148" Foreground="White" FontSize="40" FontWeight="Bold" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Tarjeta 2: Reservas Activas -->
+                <Border CornerRadius="12" Margin="15" Padding="20" Height="180">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#162B25" Offset="0.0"/>
+                            <GradientStop Color="#161A22" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Image Source="/Recursos/Iconos/reservationcard.png" Height="50"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                            <TextBlock Text="Reservas Activas" Foreground="#94A3B8" FontSize="15" FontWeight="SemiBold"/>
+                            <TextBlock Text="56" Foreground="White" FontSize="40" FontWeight="Bold" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Tarjeta 3: Validaciones Pendientes -->
+                <Border CornerRadius="12" Margin="15" Padding="20" Height="180">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#33221A" Offset="0.0"/>
+                            <GradientStop Color="#161A22" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Image Source="/Recursos/Iconos/reservaspendientescard.png" Height="50"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10">
+                            <TextBlock Text="Validaciones Pendientes" Foreground="#94A3B8" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="8 Por Revisar" Foreground="White" FontSize="30" FontWeight="Bold" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Tarjeta 4: Ingresos Totales -->
+                <Border CornerRadius="12" Margin="15" Padding="20" Height="180">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#1A2736" Offset="0.0"/>
+                            <GradientStop Color="#161A22" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Image Source="/Recursos/Iconos/estadisticascard.png" Height="50"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
+                            <TextBlock Text="Ingresos Totales" Foreground="#94A3B8" FontSize="15" FontWeight="SemiBold"/>
+                            <TextBlock Text="€12.450.00" Foreground="White" FontSize="28" FontWeight="Bold" Margin="0,2,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+            </UniformGrid>
+
+            <!-- Parte de la simulación al acceso a la BD -->
+            <Grid Grid.Row="1" Margin="15,0,15,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="1"
+                        Background="#28313B"
+                        CornerRadius="12"
+                        Margin="15,0,15,15"
+                        Padding="20">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+
+
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,18">
+
+                            <TextBlock Text="ACTIVIDAD RECIENTE DE RESERVAS"
+                                       Foreground="White"
+                                       FontSize="22"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Width="24"
+                                    Height="24"
+                                    Background="#4A5268"
+                                    CornerRadius="15"
+                                    Margin="10,0,0,0">
+
+                                <TextBlock Text="i"
+                                           Foreground="White"
+                                           FontWeight="Bold"
+                                           FontSize="14"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+
+                            </Border>
+
+                        </StackPanel>
+
+
+                        <Grid Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="ID RESERVA"
+                                       Foreground="#858FA8"
+                                       FontSize="13"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="CLIENTE"
+                                       Foreground="#858FA8"
+                                       FontSize="13"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="ENTRADA"
+                                       Foreground="#858FA8"
+                                       FontSize="13"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="SALIDA"
+                                       Foreground="#858FA8"
+                                       FontSize="13"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="4"
+                                       Text="ESTADO"
+                                       Foreground="#858FA8"
+                                       FontSize="13"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="IMPORTE"
+                                       Foreground="#858FA8"
+                                       FontSize="13"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Right"/>
+
+                        </Grid>
+
+
+                        <Border Grid.Row="2" Height="1" Background="#3B455D" Margin="0,10,0,0"/>
+
+
+                        <Grid Grid.Row="3">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="2040014"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Annen Clariqs"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="03/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="12/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Grid.Column="4"
+                                    Background="#F05454"
+                                    CornerRadius="15"
+                                    Padding="10,5"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <TextBlock Text="CONFIRMADO"
+                                           Foreground="White"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="€156,00"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Border Grid.Row="4" Height="1" Background="#3B455D"/>
+
+                        <Grid Grid.Row="5">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="2040050"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Janes Fantels"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="03/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="15/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Grid.Column="4"
+                                    Background="#F5A623"
+                                    CornerRadius="15"
+                                    Padding="10,5"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <TextBlock Text="PENDIENTE"
+                                           Foreground="White"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="€260,00"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Border Grid.Row="6" Height="1" Background="#3B455D"/>
+
+
+                        <Grid Grid.Row="7">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="2040097"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Mariia Stevalirio"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="03/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="12/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Grid.Column="4"
+                                    Background="#F05454"
+                                    CornerRadius="15"
+                                    Padding="10,5"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <TextBlock Text="CONFIRMADO"
+                                           Foreground="White"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="€56,00"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Border Grid.Row="8" Height="1" Background="#3B455D"/>
+
+
+                        <Grid Grid.Row="9">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="2040112"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Carlos Mendez"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="05/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="18/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Grid.Column="4"
+                                    Background="#22C55E"
+                                    CornerRadius="15"
+                                    Padding="10,5"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <TextBlock Text="COMPLETADA"
+                                           Foreground="White"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="€310,00"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+
+                        </Grid>
+
+
+                        <Border Grid.Row="10" Height="1" Background="#3B455D"/>
+
+                        <Grid Grid.Row="11">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="2040135"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="Laura Martinez"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="07/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="20/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Grid.Column="4"
+                                    Background="#F5A623"
+                                    CornerRadius="15"
+                                    Padding="10,5"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <TextBlock Text="PENDIENTE"
+                                           Foreground="White"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="€195,00"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                        <Border Grid.Row="12" Height="1" Background="#3B455D"/>
+
+
+                        <Grid Grid.Row="13">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.3*"/>
+                                <ColumnDefinition Width="1.4*"/>
+                                <ColumnDefinition Width="0.9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                       Text="2040168"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="David Romero"
+                                       Foreground="White"
+                                       FontSize="14"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="2"
+                                       Text="10/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="3"
+                                       Text="25/09/2022"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       VerticalAlignment="Center"/>
+
+                            <Border Grid.Column="4"
+                                    Background="#22C55E"
+                                    CornerRadius="15"
+                                    Padding="10,5"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <TextBlock Text="COMPLETADA"
+                                           Foreground="White"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+
+                            </Border>
+
+                            <TextBlock Grid.Column="5"
+                                       Text="€420,00"
+                                       Foreground="White"
+                                       FontSize="13"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="1" Background="#28313B" CornerRadius="12" Padding="20">
+                    <StackPanel>
+                        <TextBlock Text="ACCESOS RÁPIDOS" Foreground="White" FontSize="15" FontWeight="SemiBold" Margin="0,0,0,12"/>
+
+                        <Button Background="#C52233" Foreground="White" Height="40" Margin="0,0,0,8" BorderBrush="Transparent" Cursor="Hand">
+                            <TextBlock Text="+ Validar Ofertas" FontWeight="Bold" FontSize="12"/>
+                        </Button>
+
+                        <Separator Margin="0,5,0,15"/>
+
+                        <TextBlock Text="Ocupación Actual" Foreground="#94A3B8" FontSize="13" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                        <ProgressBar Value="75" Height="8" Foreground="#C52233" Background="#1A2129" Margin="0,0,0,4"/>
+                        <TextBlock Text="75% de ocupación global" Foreground="#B0BEC5" FontSize="11" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Ingresos del Mes"
+                                    Foreground="#94A3B8"
+                                    FontSize="13"
+                                    FontWeight="SemiBold"
+                                    Margin="0,0,0,4"/>
+
+                        <TextBlock Text="€12,450.00"
+                                    Foreground="White"
+                                    FontSize="20"
+                                    FontWeight="Bold"
+                                    Margin="0,0,0,5"/>
+
+                        <Separator Margin="0,0,0,12"/>
+                        
+                        <DockPanel LastChildFill="False" Margin="0,0,0,8">
+                            <TextBlock Text="Ubicación de habitaciones" Foreground="White" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                            <Button Content="Ver mapa completo →" Foreground="#858FA8" FontSize="12" Background="Transparent" BorderBrush="Transparent" DockPanel.Dock="Right" Cursor="Hand"/>
+                        </DockPanel>
+
+                        <Border CornerRadius="8" Height="300" ClipToBounds="True">
+                            <Image Source="/Recursos/Imagenes/mapaRoomMi.png" Stretch="UniformToFill" />
+                        </Border>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>

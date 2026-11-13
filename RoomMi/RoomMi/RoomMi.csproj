@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Vista\Dialogos\Login\**" />
+    <Compile Remove="Vista\Dialogos\RecuperarPassword\**" />
+    <EmbeddedResource Remove="Vista\Dialogos\Login\**" />
+    <EmbeddedResource Remove="Vista\Dialogos\RecuperarPassword\**" />
+    <None Remove="Vista\Dialogos\Login\**" />
+    <None Remove="Vista\Dialogos\RecuperarPassword\**" />
+    <Page Remove="Vista\Dialogos\Login\**" />
+    <Page Remove="Vista\Dialogos\RecuperarPassword\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Recursos\Iconos\cerrar.png" />
+    <None Remove="Recursos\Iconos\estadisticascard.png" />
+    <None Remove="Recursos\Iconos\iconoCampana %281%29.png" />
+    <None Remove="Recursos\Iconos\iconoDashboard2.png" />
+    <None Remove="Recursos\Iconos\iconoGestionReservas2.png" />
+    <None Remove="Recursos\Iconos\iconoGestionUsuarios2.png" />
+    <None Remove="Recursos\Iconos\iconoLogin2.png" />
+    <None Remove="Recursos\Iconos\iconoLogOut2.png" />
+    <None Remove="Recursos\Iconos\iconoPermisosRoles2.png" />
+    <None Remove="Recursos\Iconos\iconoValidarOfertas2.png" />
+    <None Remove="Recursos\Iconos\icons8-close-100.png" />
+    <None Remove="Recursos\Iconos\icons8-maximize-48.png" />
+    <None Remove="Recursos\Iconos\icons8-minimize-48.png" />
+    <None Remove="Recursos\Iconos\LoginImagen.png" />
+    <None Remove="Recursos\Iconos\Logo-RoomMi.png" />
+    <None Remove="Recursos\Iconos\maximizar.png" />
+    <None Remove="Recursos\Iconos\minimizar.png" />
+    <None Remove="Recursos\Iconos\reservaspendientescard.png" />
+    <None Remove="Recursos\Iconos\reservationcard.png" />
+    <None Remove="Recursos\Iconos\roomcard.png" />
+    <None Remove="Recursos\Imagenes\Imagen-fondo-RoomMi.jpg" />
+    <None Remove="Recursos\Imagenes\mapaRoomMi.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="5.4.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Recursos\Iconos\cerrar.png" />
+    <Resource Include="Recursos\Iconos\estadisticascard.png" />
+    <Resource Include="Recursos\Iconos\iconoCampana (1).png" />
+    <Resource Include="Recursos\Iconos\iconoDashboard2.png" />
+    <Resource Include="Recursos\Iconos\iconoGestionReservas2.png" />
+    <Resource Include="Recursos\Iconos\iconoGestionUsuarios2.png" />
+    <Resource Include="Recursos\Iconos\iconoLogin2.png" />
+    <Resource Include="Recursos\Iconos\iconoLogOut2.png" />
+    <Resource Include="Recursos\Iconos\iconoPermisosRoles2.png" />
+    <Resource Include="Recursos\Iconos\iconoValidarOfertas2.png" />
+    <Resource Include="Recursos\Iconos\icons8-close-100.png" />
+    <Resource Include="Recursos\Iconos\icons8-maximize-48.png" />
+    <Resource Include="Recursos\Iconos\icons8-minimize-48.png" />
+    <Resource Include="Recursos\Iconos\LoginImagen.png" />
+    <Resource Include="Recursos\Iconos\Logo-RoomMi.png" />
+    <Resource Include="Recursos\Iconos\maximizar.png" />
+    <Resource Include="Recursos\Iconos\minimizar.png" />
+    <Resource Include="Recursos\Iconos\reservaspendientescard.png" />
+    <Resource Include="Recursos\Iconos\reservationcard.png" />
+    <Resource Include="Recursos\Iconos\roomcard.png" />
+    <Resource Include="Recursos\Imagenes\Imagen-fondo-RoomMi.jpg" />
+    <Resource Include="Recursos\Imagenes\mapaRoomMi.png" />
+  </ItemGroup>
+
+</Project>

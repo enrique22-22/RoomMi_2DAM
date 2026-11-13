@@ -1,0 +1,151 @@
+﻿<mah:MetroWindow x:Class="RoomMi.ProyectoIntermodular.EnriqueyAdrian.Vista.Dialogos.Login.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:RoomMi.ProyectoIntermodular.EnriqueyAdrian.Vista.Dialogos.Login"
+        mc:Ignorable="d"
+        Icon="/Recursos/Iconos/Logo-RoomMi.png"
+        Title="Login" Height="700" Width="800"
+        MinHeight="600" MinWidth="700"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- ================= FONDO ================= -->
+
+        <!-- Imagen de fondo: ocupa las dos columnas y se recorta lo mínimo -->
+        <Image Grid.ColumnSpan="2"
+               Source="/Recursos/Imagenes/Imagen-fondo-RoomMi.jpg"
+               Stretch="Fill" />
+
+        <!-- Degradado lineal de Oscuro a Coral (columna derecha) -->
+        <Rectangle Grid.Column="1" Opacity="0.95">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#333" Offset="0.1" />
+                    <GradientStop Color="#FF385C" Offset="0.4" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!-- ================= COLUMNA IZQUIERDA: Logo y texto ================= -->
+        <Viewbox Grid.Column="0" Stretch="Uniform" MaxWidth="600" Margin="20">
+            <StackPanel Width="360" VerticalAlignment="Center">
+
+                <Image Source="/Recursos/Iconos/Logo-RoomMi.png" Height="64" />
+
+                <TextBlock Text="R o o m M i"
+                           HorizontalAlignment="Center"
+                           Foreground="Red"
+                           FontSize="60" />
+
+                <TextBlock Text="Con esta aplicación puedes validar publicaciones de habitaciones, gestionar los usuarios caseros e inquilinos, controlar las reservas y supervisar la plataforma."
+                           Width="350"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           TextWrapping="WrapWithOverflow" />
+
+            </StackPanel>
+        </Viewbox>
+
+        <!-- ================= COLUMNA DERECHA: Formulario ================= -->
+        <Viewbox Grid.Column="1" Stretch="Uniform" MaxWidth="600" Margin="20">
+            <StackPanel Width="360">
+
+                <TextBlock Text="BIENVENIDO A"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           FontSize="30" />
+
+                <TextBlock Text="R o o m M i"
+                           HorizontalAlignment="Center"
+                           FontSize="50"
+                           FontWeight="Bold"
+                           Foreground="Red" />
+
+                <Image Source="/Recursos/Iconos/Logo-RoomMi.png"
+                       Margin="0,10,0,0"
+                       Height="60" />
+
+                <TextBlock Text="Para entrar en la aplicación introduce tu usuario y contraseña. Puedes cambiar la contraseña si no la recuerdas."
+                           Width="300"
+                           Margin="0,10,0,0"
+                           Foreground="Gray"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           TextWrapping="WrapWithOverflow" />
+
+                <TextBox HorizontalAlignment="Center" Width="300"
+                         Margin="0,20,0,0"
+                         BorderBrush="Gray"
+                         x:Name="txtLoginCorreo"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         mat:TextFieldAssist.HasClearButton="True"
+                         mat:TextFieldAssist.TextFieldCornerRadius="25">
+                    <mat:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <mat:PackIcon Kind="User" />
+                            <TextBlock Margin="2,0,0,0" Text="Correo Electrónico" />
+                        </StackPanel>
+                    </mat:HintAssist.Hint>
+                </TextBox>
+
+                <PasswordBox HorizontalAlignment="Center" Width="300"
+                             Margin="0,20,0,0"
+                             x:Name="passContraseñaLogin"
+                             BorderBrush="Gray"
+                             Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                             mat:TextFieldAssist.HasClearButton="True"
+                             mat:TextFieldAssist.TextFieldCornerRadius="25">
+                    <mat:HintAssist.Hint>
+                        <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                            <mat:PackIcon Kind="Lock" />
+                            <TextBlock Margin="2,0,0,0" Text="Contraseña" />
+                        </StackPanel>
+                    </mat:HintAssist.Hint>
+                </PasswordBox>
+
+                <Button Width="300" Margin="0,30,0,0"
+                        Content="LOGIN"
+                        Foreground="White"
+                        Click="btnLogin_Click"
+                        BorderThickness="0"
+                        mat:ButtonAssist.CornerRadius="25"
+                        VerticalAlignment="Center"
+                        Background="#EA4335" />
+
+                <!-- Fila con Grid en lugar de márgenes negativos -->
+                <Grid Width="300" Margin="0,25,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="No tienes cuenta?"
+                               VerticalAlignment="Center" />
+
+                    <Button Grid.Column="1"
+                            Content="Recuperar contraseña"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            FontSize="12"
+                            Click="bntRecupPassword"
+                            Foreground="Firebrick"
+                            FontWeight="Bold"
+                            Padding="0" />
+                </Grid>
+
+            </StackPanel>
+        </Viewbox>
+
+    </Grid>
+
+</mah:MetroWindow>
