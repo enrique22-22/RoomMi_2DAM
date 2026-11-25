@@ -27,6 +27,8 @@ namespace RoomMi
             services.AddTransient<Login>();
             services.AddTransient<MainWindow>();
             services.AddTransient<RecuperarPassword>();
+            services.AddTransient<GestionReservas>();
+            services.AddTransient<Func<GestionReservas>>(serviceProvider => () => serviceProvider.GetRequiredService<GestionReservas>());
             services.AddTransient<Func<Login>>(serviceProvider => () => serviceProvider.GetRequiredService<Login>());
             services.AddTransient<Func<MainWindow>>(serviceProvider => () => serviceProvider.GetRequiredService<MainWindow>());
         }

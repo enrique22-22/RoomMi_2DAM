@@ -1,18 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "OQglMl/3r2c=",
+  "dgSpecHash": "1HJZzxb3Bek=",
   "success": true,
-  "projectFilePath": "C:\\Users\\34677\\OneDrive\\Escritorio\\RoomMi\\RoomMi\\RoomMi.csproj",
+  "projectFilePath": "C:\\Users\\enrsoralf\\RoomMi_2DAM\\RoomMi\\RoomMi\\RoomMi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\34677\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\mahapps.metro\\2.4.11\\mahapps.metro.2.4.11.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\materialdesigncolors\\5.4.0\\materialdesigncolors.5.4.0.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\materialdesignthemes\\5.4.0\\materialdesignthemes.5.4.0.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\materialdesignthemes.mahapps\\5.4.0\\materialdesignthemes.mahapps.5.4.0.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.142\\microsoft.xaml.behaviors.wpf.1.1.142.nupkg.sha512",
-    "C:\\Users\\34677\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\controlzex\\4.4.0\\controlzex.4.4.0.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\mahapps.metro\\2.4.11\\mahapps.metro.2.4.11.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\materialdesigncolors\\5.4.0\\materialdesigncolors.5.4.0.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\materialdesignthemes\\5.4.0\\materialdesignthemes.5.4.0.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\materialdesignthemes.mahapps\\5.4.0\\materialdesignthemes.mahapps.5.4.0.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.142\\microsoft.xaml.behaviors.wpf.1.1.142.nupkg.sha512",
+    "C:\\Users\\enrsoralf\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
   "logs": []
 }

@@ -56,7 +56,7 @@
                 </Button>
 
                 <!-- Boton Reservas -->
-                <Button Background="Transparent" Height="50" Margin="10,0,10,10" BorderBrush="Transparent" HorizontalContentAlignment="Left">
+                <Button Background="Transparent" Height="50" Margin="10,0,10,10" BorderBrush="Transparent" HorizontalContentAlignment="Left" Click="btnGestionReservas_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Recursos/Iconos/iconoGestionReservas2.png" Height="25" Stretch="Uniform" />
                         <TextBlock Margin="10,0,0,0" Text="Gestión de Reservas" Foreground="White" VerticalAlignment="Center" FontSize="18" />

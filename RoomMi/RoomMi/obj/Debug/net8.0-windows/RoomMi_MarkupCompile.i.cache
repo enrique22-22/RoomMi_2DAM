@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\34677\OneDrive\Escritorio\RoomMi\RoomMi\obj\Debug\net8.0-windows\
+C:\Users\enrsoralf\RoomMi_2DAM\RoomMi\RoomMi\obj\Debug\net8.0-windows\
 RoomMi
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\34677\OneDrive\Escritorio\RoomMi\RoomMi\App.xaml
-3-1316634519
+C:\Users\enrsoralf\RoomMi_2DAM\RoomMi\RoomMi\App.xaml
+461300270
 
-8-1578004304
-206-1998450921
-MainWindow.xaml;Vista\Dialogos\Login.xaml;Vista\Dialogos\RecuperarPassword.xaml;
+9848413485
+2062107276304
+MainWindow.xaml;Vista\Dialogos\GestionReservas.xaml;Vista\Dialogos\Login.xaml;Vista\Dialogos\RecuperarPassword.xaml;
 
-True
+False
 

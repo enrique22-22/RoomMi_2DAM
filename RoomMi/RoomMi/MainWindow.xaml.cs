@@ -20,10 +20,12 @@ namespace RoomMi
     {
 
         private readonly Func<Login> _loginFactory;
-        public MainWindow(Func<Login> loginFactory)
+        private readonly Func<GestionReservas> _gestionReservasFactory;
+        public MainWindow(Func<Login> loginFactory, Func<GestionReservas> gestionReservasFactory)
         {
             InitializeComponent();
             _loginFactory = loginFactory;
+            _gestionReservasFactory = gestionReservasFactory;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -50,6 +52,16 @@ namespace RoomMi
             this.WindowState = WindowState.Minimized;
 
         }
+
+        private void btnGestionReservas_Click(object sender, RoutedEventArgs e)
+        {
+            GestionReservas gestionReservas = _gestionReservasFactory();
+
+            Application.Current.MainWindow = gestionReservas;
+            gestionReservas.Show();
+            this.Close();
+        }
+
 
         private void btnNotificaciones_Click(object sender, RoutedEventArgs e)
         {
