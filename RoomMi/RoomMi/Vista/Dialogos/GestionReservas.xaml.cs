@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoomMi.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,14 @@ namespace RoomMi.Vista.Dialogos
     {
         private readonly Func<MainWindow> _mainWindowFactory;
         private readonly Func<Login> _loginFactory;
+        private readonly UsuarioSesion _usuarioSesion;
 
-        public GestionReservas(Func<MainWindow> mainWindowFactory, Func<Login> loginFactory)
+        public GestionReservas(Func<MainWindow> mainWindowFactory, Func<Login> loginFactory, UsuarioSesion usuarioSesion)
         {
             InitializeComponent();
             _mainWindowFactory = mainWindowFactory;
             _loginFactory = loginFactory;
+            _usuarioSesion = usuarioSesion;
         }
 
         private void btnDashboard_Click(object sender, RoutedEventArgs e)
@@ -75,6 +78,14 @@ namespace RoomMi.Vista.Dialogos
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            tbNombreUsuario.Text = _usuarioSesion.UsuarioActual?.Nombre;
+
+
         }
 
     }

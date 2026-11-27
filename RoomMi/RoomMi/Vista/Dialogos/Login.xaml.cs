@@ -1,5 +1,9 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using RoomMi.Modelos;
+using RoomMi.Servicios;
+using RoomMi.Servicios.Interfaces;
+using RoomMi.Vista.Dialogos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +17,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RoomMi.Vista.Dialogos;
 
 
 namespace RoomMi.Vista.Dialogos
@@ -24,31 +27,48 @@ namespace RoomMi.Vista.Dialogos
     public partial class Login : MetroWindow
     {
 
-        private MainWindow _mainWindow;
-        public Login(MainWindow mainWindow)
+        private readonly Func<MainWindow> _mainWindowFactory;
+        private readonly IUsuarioServicio _usuarioServicio;
+        private readonly UsuarioSesion _usuarioSesion;
+        public Login(Func<MainWindow> mainWindowFactory, IUsuarioServicio usuarioServicio, UsuarioSesion usuarioSesion)
         {
             InitializeComponent();
-            _mainWindow = mainWindow;
+            _mainWindowFactory = mainWindowFactory;
+            _usuarioServicio = usuarioServicio;
+            _usuarioSesion = usuarioSesion;
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtLoginCorreo.Text) || string.IsNullOrEmpty(passContraseñaLogin.Password))
+            string username = txtLoginCorreo.Text;
+            string pasasword = passContraseñaLogin.Password;
+            Usuario? usuario;
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(pasasword))
             {
 
-                this.ShowMessageAsync("Error de inicio de sesión",
+                await this.ShowMessageAsync("Error de inicio de sesión",
                     "Por favor, ingrese un nombre de usuario y una contraseña.");
 
             }
-            else
-            {
+            else { 
+                usuario = await _usuarioServicio.LoginAsync(username, pasasword);
+                if (usuario != null)
 
-                Application.Current.MainWindow = _mainWindow;
-                _mainWindow.Show();
-                Close();
+                {
+                    _usuarioSesion.UsuarioActual = usuario;
+                    MainWindow mainWindow = _mainWindowFactory();
+                    Application.Current.MainWindow = mainWindow;
+                    mainWindow.Show();
+                    Close();
 
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Error de inicio de sesión",
+                        "Nombre de usuario o contraseña incorrectos.");
+                }
             }
-
         }
 
         private void bntRecupPassword(object sender, RoutedEventArgs e)

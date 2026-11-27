@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RoomMi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e584ecf9c510a605ed27656b177c0f93fbdaed83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11a73e0840764a1065176e7f203bb310d2b5a0a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("RoomMi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RoomMi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

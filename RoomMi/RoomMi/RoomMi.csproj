@@ -46,7 +46,14 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="5.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.34" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.34">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.34" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.31" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,6 +79,11 @@
     <Resource Include="Recursos\Iconos\roomcard.png" />
     <Resource Include="Recursos\Imagenes\Imagen-fondo-RoomMi.jpg" />
     <Resource Include="Recursos\Imagenes\mapaRoomMi.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Modelos\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 
 </Project>

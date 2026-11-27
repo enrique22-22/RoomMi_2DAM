@@ -1,4 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RoomMi.Datos.Repositorios;
+using RoomMi.Servicios;
+using RoomMi.Modelos;
+using RoomMi.Servicios.Interfaces;
 using RoomMi.Vista.Dialogos;
 using System.Configuration;
 using System.Data;
@@ -24,6 +28,9 @@ namespace RoomMi
 
         private static void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextFactory<BdProyectoContext>();
+            services.AddLogging();
+
             services.AddTransient<Login>();
             services.AddTransient<MainWindow>();
             services.AddTransient<RecuperarPassword>();
@@ -31,6 +38,10 @@ namespace RoomMi
             services.AddTransient<Func<GestionReservas>>(serviceProvider => () => serviceProvider.GetRequiredService<GestionReservas>());
             services.AddTransient<Func<Login>>(serviceProvider => () => serviceProvider.GetRequiredService<Login>());
             services.AddTransient<Func<MainWindow>>(serviceProvider => () => serviceProvider.GetRequiredService<MainWindow>());
+
+            services.AddSingleton<UsuarioSesion>();
+            services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IUsuarioServicio, UsuarioServicio>();
         }
 
         protected override void OnStartup(StartupEventArgs e)

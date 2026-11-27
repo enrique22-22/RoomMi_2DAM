@@ -11,6 +11,7 @@
         Icon="/Recursos/Iconos/Logo-RoomMi.png"
         WindowStyle="None" AllowsTransparency="True"
         WindowState="Maximized"
+        Loaded="MetroWindow_Loaded"
         Title="GestionReservas" Height="900" Width="1300">
 
     <Window.Resources>
@@ -89,7 +90,7 @@
             <Button Background="Transparent" Height="50" Grid.Row="2" BorderBrush="Transparent" VerticalAlignment="Bottom" Margin="0,0,0,20">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/Iconos/iconoLogin2.png" Height="25" Stretch="Uniform" />
-                    <TextBlock Margin="10,0,0,0" Text="Administrador" Foreground="White" VerticalAlignment="Center" FontSize="18" />
+                    <TextBlock Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" FontSize="18" x:Name="tbNombreUsuario" />
                     <Button Background="Transparent" Height="30" BorderBrush="Transparent" VerticalAlignment="Bottom" Click="bntLogOut"  >
                         <Image Source="/Recursos/Iconos/iconoLogOut2.png" Margin="10,0,0,0" Height="25" Stretch="Uniform"  />
                     </Button>

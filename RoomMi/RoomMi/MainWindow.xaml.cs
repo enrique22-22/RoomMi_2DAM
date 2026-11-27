@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.CompilerServices;
+using RoomMi.Servicios;
 
 namespace RoomMi
 {
@@ -21,11 +23,13 @@ namespace RoomMi
 
         private readonly Func<Login> _loginFactory;
         private readonly Func<GestionReservas> _gestionReservasFactory;
-        public MainWindow(Func<Login> loginFactory, Func<GestionReservas> gestionReservasFactory)
+        private readonly UsuarioSesion _usuarioSesion;
+        public MainWindow(Func<Login> loginFactory, Func<GestionReservas> gestionReservasFactory, UsuarioSesion usuarioSesion)
         {
             InitializeComponent();
             _loginFactory = loginFactory;
             _gestionReservasFactory = gestionReservasFactory;
+            _usuarioSesion = usuarioSesion;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -76,6 +80,14 @@ namespace RoomMi
 
             login.Show();
             this.Close();
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            tbNombreUsuario.Text = _usuarioSesion.UsuarioActual?.Nombre;
+
+
         }
     }
 }
